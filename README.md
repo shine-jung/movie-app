@@ -1,70 +1,271 @@
-# Getting Started with Create React App
+# React JS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 강의노트
 
-## Available Scripts
+### 1.2
 
-In the project directory, you can run:
+React JS를 배울 가치가 있는 이유
 
-### `npm start`
+- 큰 기업들
+- 페이스북의 투자
+- 큰 커뮤니티(JS)
+  - 책, 코스, 라이브러리, 가이드, 패키지, 튜터, 직업
+  - React JS를 기반으로 한 생태계
+- React Native
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2.0
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+React JS makes UI interacitve
 
-### `npm test`
+### 2.1
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- vscode tip
+  - script:src
+- import
+  - react
+  - react-dom
+    - put React elements to HTML body
 
-### `npm run build`
+### 2.2
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React element
+  - React.createElement(HTML tag);
+- vscode tip
+  - #root
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2.5
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- JSX
+  - React.createElement(component, props, ...children)
 
-### `npm run eject`
+### 2.6
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- 컴포넌트의 첫 글자는 대문자
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3.0
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- React의 좋은점
+  - UI에서 바뀐 부분만 업데이트 해준다.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 3.1
 
-## Learn More
+- state
+  - 자동으로 리렌더링을 일으킬 수 있는 최고의 방법
+  - React.useState(초기값);
+    - [값(value), 값을 바꿀 때 사용하는 함수(modifier)]
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+const food = ["tomato", "potato"];
+const [myFavFood, mySecondFavFood] = food;
+console.log(myFavFood); // tomato
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 3.2
 
-### Code Splitting
+- useState의 modifier 함수
+  - 값 변경, 해당 컴포넌트 리렌더링
+  - set + 데이터 이름
+    - setCounter
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 3.4
 
-### Analyzing the Bundle Size
+- setCounter((current) => current + 1)
+  - 함수를 전달하는 방식
+  - 현재 state를 기반으로 계산
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 3.5
 
-### Making a Progressive Web App
+- HTML label
+  - input 옆에 써주는 글씨
+  - 글씨를 누르면 input이 선택됨
+  - for input의 id로 연결
+- In JSX
+  - class -> className
+  - for -> htmlFor
+- onChange
+- event.target.value
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- 본문이 여러 줄인 화살표 함수
+  - 중괄호, return 사용
 
-### Advanced Configuration
+### 3.7
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- 삼항연산자
 
-### Deployment
+### 3.9
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- select
+  - option
+- JSX에서 {}를 통해서 JS를 작성할 수 있음.
 
-### `npm run build` fails to minify
+### 4.0
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- props
+  - property
+  - 부모 컴포넌트로부터 자식 컴포넌트에 데이터를 보낼 수 있게 해주는 방법
+- 함수형 컴포넌트
+
+### 4.1
+
+- props
+  - function을 보낼 수 있음
+    - 여기서 onClick은 event listener가 아님
+    - JSX로 원하는 html tag에 넣어줘야 event listener가 실행됨
+- React Memo
+  - 부모 컴포넌트의 state를 변경하면 모든 자식 컴포넌트들도 re-render가 일어남
+  - React.memo()를 통해서 prop의 변경이 일어난 부분만 re-render 할 수 있음
+
+### 4.2
+
+```
+fontSize: fontSize,
+==
+fontSize,
+```
+
+- prop-types
+  - prop들의 type이 무엇인지 알려줌
+  - https://ko.reactjs.org/docs/typechecking-with-proptypes.html
+  - isRequired
+- default value
+
+### 5.0
+
+- CRA(create react app)
+  - https://github.com/facebook/create-react-app
+  - package.json
+    - scripts
+  - public
+    - index.html
+  - src
+
+### 5.1
+
+- npm i prop-types
+- styles can be modular
+  - .module.css
+
+### 6.0
+
+- on: component에 붙여줄 수 있는 모든 event들을 볼 수 있음.
+- useEffect
+  - 특정 코드들이 첫번째 component render에서만 실행되게 하는 방법
+    - ex) call an api
+  - argument
+    - Callback function
+    - deps
+      - dependencies (React.js가 지켜보려는 것들)
+      - dependency가 변화할 때 function 실행
+      - dependency가 없으면 component가 처음 생성될 때 한번 실행됨
+
+### 6.4
+
+- Cleanup function
+  - component가 destroy 될 때 코드 실행
+  - useEffect()에서 parameter로 넣은 Callback function의 return 함수
+  - 보통 useEffect안에 모든 것을 작성
+
+### 7.0
+
+- State를 직접적으로 수정하지 않음. modifier 함수를 사용함
+- ...array
+  - array의 elements를 가져와줌
+
+### 7.1
+
+- map()
+  - 배열.map(배열의 모든 item에 대해 실행될 함수)
+  - 새로운 array를 return
+  - map의 함수의 첫번째 argument: 진행되고 있는 순서에 맞는 item
+  - Each child in a list should have a unique "key" prop.
+    - React.js에서 map을 쓸 때 element에 key(고유값)를 줘야함
+    - map의 함수의 두번째 argument: index
+    ```
+    {toDos.map((item, index) => (
+      <li key={index}>{item}</li>
+    ))}
+    ```
+    - return li array
+
+### 7.2
+
+- 코인 API
+  - https://api.coinpaprika.com/v1/tickers
+  - key로 사용할 id가 있어서 index를 불러오지 않아도 됨
+
+### 7.3
+
+- async-await
+  ```
+  // then 방식
+  useEffect(() => {
+    fetch(
+      `https://yts.mx/api/v2/list_movies.json?minimum_rating=${minimum_rating}&sort_by=${sort_by}`
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        setMovies(json.data.movies);
+        setLoading(false);
+      });
+  }, []);
+  ```
+  ```
+  // async-await 방식
+  const getMovies = async () => {
+    const json = await (
+      await fetch(
+        `https://yts.mx/api/v2/list_movies.json?minimum_rating=${minimum_rating}&sort_by=${sort_by}`
+      )
+    ).json();
+    setMovies(json.data.movies);
+    setLoading(false);
+  };
+  useEffect(() => {
+    getMovies();
+  }, []);
+  ```
+
+### 7.4
+
+- React Router
+  - npm install react-router-dom
+- vscode tip
+  - auto import, update dir
+
+### 7.5
+
+- react-router-dom
+  - looking url
+  - Link
+    - 새로고침 없이 다른 페이지로 이동
+  - update note
+    - Switch -> Routes
+    - element prop: 자식 컴포넌트
+
+### 7.6
+
+- useParams
+  - url에 있는 변수값
+  ```
+  const { id } = useParams();
+  ```
+
+### 7.7
+
+- github publish
+  - npm i gh-pages
+    - package.json
+    ```
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
+    "homepage": "https://userName.github.io/RepoName"
+    ```
+    - npm run deploy를 했을 때 predeploy 후 deploy가 실행됨
+
+### 7.9
+
+- `${String.slice(0, 235)}...`
+
+### 7.10
+
+- 함수형뿐만 아니라 class 형식도 공부할 것
